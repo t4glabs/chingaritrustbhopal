@@ -1,0 +1,51 @@
+/* Static-site overrides for Chingari Trust Bhopal GitHub Pages */
+@import url('https://fonts.bunny.net/css?family=lora:400,700|inter:400,500,600');
+
+:root {
+  --ghost-accent-color: #7A2E2E;
+  --gh-font-heading: Lora;
+  --gh-font-body: Inter;
+}
+
+/* Hide Ghost-only UI that requires a live Ghost backend */
+.gh-post-upgrade-cta,
+.gh-subscribe,
+[data-ghost-search],
+.gh-search { display: none !important; }
+
+/* ── Nav link color: force dark on all viewports ─────────────────── */
+#gh-head .gh-head-menu .nav a {
+  color: #15171a !important;
+}
+
+/* ── Desktop (≥ 768px): hide burger, keep nav visible ────────────── */
+@media (min-width: 768px) {
+  .gh-burger { display: none !important; }
+  #gh-head .gh-head-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+  }
+  #gh-head .gh-head-menu .nav > li {
+    opacity: 1 !important;
+  }
+}
+
+/* ── Mobile (< 768px): show burger ───────────────────────────────── */
+@media (max-width: 767px) {
+  .gh-burger {
+    display: flex !important;
+    position: relative;
+    z-index: 10;
+  }
+  .gh-burger::before, .gh-burger::after {
+    background-color: #15171a !important;
+  }
+}
+
+/* ── Hero card: kg-v2 resets min-height to initial ───────────────── */
+.kg-header-card.kg-v2 .kg-header-card-content {
+  padding-top: min(10vmax, 180px);
+  padding-bottom: min(10vmax, 180px);
+  width: 100%;
+}
